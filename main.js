@@ -6,10 +6,10 @@ todoList = {
     } else {
       console.log('My todos: ')
       for (i = 0; i < this.todos.length; i++) {
-        if (this.todos[i].completed === false) {
-          console.log('( )',this.todos[i].todoText)
-        } else {
+        if (this.todos[i].completed === true) {
           console.log('(x)',this.todos[i].todoText) 
+        } else {
+          console.log('( )',this.todos[i].todoText)
         }
       }
     }
@@ -33,4 +33,19 @@ todoList = {
     todo = this.todos[index]
     todo.completed = !todo.completed
   },
+  toggleAll: function() {
+    totalTodos = this.todos.length
+    completedTodos = 0
+    for (i = 0; i < totalTodos; i++) {
+      if (this.todos[i].completed === true) {
+        completedTodos++
+      }
+    }
+    if (completedTodos === totalTodos) {
+      for (i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = false
+      }
+      this.displayTodos()
+    }
+  }
 }  
