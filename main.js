@@ -1,9 +1,13 @@
 todoList = {
   todos: [],
   displayTodos: function() {
-    console.log('My todos: ')
-    for (i = 0; i < this.todos.length; i++) {
+    if (this.todos.length === 0) {
+      console.log('you have no todos!')
+    } else {
+      console.log('My todos: ')
+      for (i = 0; i < this.todos.length; i++) {
       console.log(this.todos[i].todoText)
+      }
     }
   },
   addTodo: function(todoText) {
@@ -24,5 +28,5 @@ todoList = {
   toggleCompleted: function(index) {
     todo = this.todos[index]
     todo.completed = !todo.completed
-  }
-}
+  },
+}  
