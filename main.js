@@ -55,12 +55,11 @@ todoList = {
   }
 }
 
-displayTodosButton = document.getElementById('displayButton')
-displayTodosButton.addEventListener('click', function() {
-  todoList.displayTodos()
-})
-
-toggleAllButton = document.getElementById('toggleButton')
-toggleAllButton.addEventListener('click', function() {
-  todoList.toggleAll()
-})
+handlers = {
+  displayTodos: function() {
+    todoList.displayTodos()    
+  },
+  toggleAllTodos: function() {
+    todoList.toggleAll()
+  }
+}
