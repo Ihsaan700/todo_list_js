@@ -53,4 +53,9 @@ todoList = {
       this.displayTodos()
     }
   }
-}  
+}
+
+displayTodosButton = document.getElementById('displayButton')
+displayTodosButton.addEventListener('click', function() {
+  todoList.displayTodos()
+})
