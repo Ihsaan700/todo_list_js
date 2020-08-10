@@ -46,6 +46,11 @@ todoList = {
         this.todos[i].completed = false
       }
       this.displayTodos()
+    } else {
+      for (i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = true
+      }
+      this.displayTodos()
     }
   }
 }  
