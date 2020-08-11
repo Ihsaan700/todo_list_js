@@ -66,5 +66,12 @@ handlers = {
     addTodoTextInput = document.getElementById('addTodoTextInput')
     todoList.addTodo(addTodoTextInput.value)
     addTodoTextInput.value = ''
+  },
+  changeTodo: function() {
+    changeTodoPositionInput = document.getElementById('ChangeTodoPosition')
+    changeTodoInputText = document.getElementById('ChangeTodoTextInput')
+    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoInputText.value)
+    changeTodoPositionInput.value = ''
+    changeTodoInputText.value = ''
   }
 }
