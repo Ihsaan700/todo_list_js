@@ -32,6 +32,7 @@ todoList = {
   toggleCompleted: function(index) {
     todo = this.todos[index]
     todo.completed = !todo.completed
+    this.displayTodos()
   },
   toggleAll: function() {
     totalTodos = this.todos.length
@@ -59,9 +60,6 @@ handlers = {
   displayTodos: function() {
     todoList.displayTodos()    
   },
-  toggleAllTodos: function() {
-    todoList.toggleAll()
-  },
   addTodo: function() {
     addTodoTextInput = document.getElementById('addTodoTextInput')
     todoList.addTodo(addTodoTextInput.value)
@@ -78,5 +76,13 @@ handlers = {
     deleteTodoPositionInput = document.getElementById('deletePositionInput')
     todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber)
     deleteTodoPositionInput.value = ''
+  },
+  toggleTodo: function() {
+    toggledTodo = document.getElementById('toggleTodoInput')
+    todoList.toggleCompleted(toggledTodo.valueAsNumber)
+    toggleTodo = ''
+  },
+  toggleAllTodos: function() {
+    todoList.toggleAll()
   }
 }
