@@ -73,5 +73,10 @@ handlers = {
     todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoInputText.value)
     changeTodoPositionInput.value = ''
     changeTodoInputText.value = ''
+  },
+  deleteTodo: function() {
+    deleteTodoPositionInput = document.getElementById('deletePositionInput')
+    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber)
+    deleteTodoPositionInput.value = ''
   }
 }
