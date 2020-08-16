@@ -92,8 +92,16 @@ view = {
     todosUl = document.querySelector('ul')
     todosUl.innerHTML = ''
     for (i = 0; i < todoList.todos.length; i++) {
-      
       todoLi = document.createElement('li')
+      todo = todoList.todos[i]
+      todoTextWithCompletion = ''
+      if (todo.completed === true) {
+        todoTextWithCompletion = '(X) ' + todo.todoText
+      } else {
+       todoTextWithCompletion = '( ) ' + todo.todoText 
+      }
+      
+      todoLi.textContent = todoTextWithCompletion
       todosUl.appendChild(todoLi)
     }
   }
