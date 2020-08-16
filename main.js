@@ -86,3 +86,15 @@ handlers = {
     todoList.toggleAll()
   }
 }
+
+view = {
+  displayTodos: function() {
+    todosUl = document.querySelector('ul')
+    todosUl.innerHTML = ''
+    for (i = 0; i < todoList.todos.length; i++) {
+      
+      todoLi = document.createElement('li')
+      todosUl.appendChild(todoLi)
+    }
+  }
+}
