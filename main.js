@@ -20,20 +20,21 @@ todoList = {
   toggleAll: function() {
     totalTodos = this.todos.length
     completedTodos = 0
-    for (i = 0; i < totalTodos; i++) {
-      if (this.todos[i].completed === true) {
+    
+    this.todos.forEach(function(todo) {
+      if (todo.completed === true) {
         completedTodos++
       }
-    }
-    if (completedTodos === totalTodos) {
-      for (i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = false
+    })
+    
+    this.todos.forEach(function(todo) {
+      if (completedTodos === totalTodos) {
+        todo.completed = false
+      } else {
+        todo.completed = true
       }
-    } else {
-      for (i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = true
-      }
-    }
+    })
+
   }
 }
 
@@ -73,21 +74,24 @@ view = {
   displayTodos: function() {
     todosUl = document.querySelector('ul')
     todosUl.innerHTML = ''
-    for (i = 0; i < todoList.todos.length; i++) {
+    // for (i = 0; i < todoList.todos.length; i++) {
+    //   todoLi = document.createElement('li')
+    //   todo = todoList.todos[i]
+    //   todoTextWithCompletion = ''
+    todoList.todos.forEach(function(todo, position) {
       todoLi = document.createElement('li')
-      todo = todoList.todos[i]
       todoTextWithCompletion = ''
+
       if (todo.completed === true) {
         todoTextWithCompletion = '(X) ' + todo.todoText
       } else {
        todoTextWithCompletion = '( ) ' + todo.todoText 
       }
-      
-      todoLi.id = i
-      todoLi.textContent = todoTextWithCompletion
-      todoLi.appendChild(this.createDeleteButton())
-      todosUl.appendChild(todoLi)
-    }
+       todoLi.id = position
+       todoLi.textContent = todoTextWithCompletion
+       todoLi.appendChild(this.createDeleteButton())
+       todosUl.appendChild(todoLi)
+    }, this)
   },
   createDeleteButton: function() {
     deleteButton = document.createElement('button')
