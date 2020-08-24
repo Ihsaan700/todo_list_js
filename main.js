@@ -55,7 +55,6 @@ handlers = {
   },
   deleteTodo: function(position) {
     todoList.deleteTodo(position)
-    // deleteTodoPositionInput.value = ''
     view.displayTodos()
   },
   toggleTodo: function() {
@@ -74,10 +73,6 @@ view = {
   displayTodos: function() {
     todosUl = document.querySelector('ul')
     todosUl.innerHTML = ''
-    // for (i = 0; i < todoList.todos.length; i++) {
-    //   todoLi = document.createElement('li')
-    //   todo = todoList.todos[i]
-    //   todoTextWithCompletion = ''
     todoList.todos.forEach(function(todo, position) {
       todoLi = document.createElement('li')
       todoTextWithCompletion = ''
